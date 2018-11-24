@@ -17,10 +17,8 @@ final class AppRouter {
     }
     
     func start() {
-        // TODO: Replace with movie list builder.
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .orange
-        viewController.title = "Replace Me"
+        let viewModel = MovieListViewModel(service: app.service)
+        let viewController = MovieListBuilder.make(with: viewModel)
         let navigationController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
